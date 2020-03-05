@@ -1,6 +1,7 @@
 /*******************************************************************/
-/*  Step 5. chema tables  */
--- IF OBJECT_ID(N'dbo.Cars', N'U') IS NULL BEGIN CREATE TABLE dbo.Cars (Name varchar(64) not null); END; – hastrb Oct 3 '17 at 14:16 
+/*  Step 5. Insert data to lkp.schema tables   */
+/*******************************************************************/
+
 use [MariaBoyar_Insurance_Test]
 truncate table lkp.Line_of_Business
 truncate table lkp.Policy_Form

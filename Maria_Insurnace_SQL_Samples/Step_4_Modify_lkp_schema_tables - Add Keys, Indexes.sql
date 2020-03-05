@@ -1,30 +1,18 @@
 /*******************************************************************/
-/*  Step 3. Create "lkp" (lookup) Schema tables  */
--- IF OBJECT_ID(N'dbo.Cars', N'U') IS NULL BEGIN CREATE TABLE dbo.Cars (Name varchar(64) not null); END; – hastrb Oct 3 '17 at 14:16 
-drop table lkp.Line_of_Business
-drop table lkp.Policy_Form
-drop table lkp.Policy_Term
-drop table lkp.Policy_Transaction_Type
-drop table lkp.States
+/*  Step 4. Modify "lkp" (lookup) Schema tables - Keys, Indexes */
+/*DROP IF EXISTS - DIE new thing in SQL Server 2016*/
 /********************************************************************/
-
-/***************  Line Of Business ****************************/
-
-if not exists (select * from sys.tables t join sys.schemas s on (t.schema_id = s.schema_id) where s.name = 'lkp' and t.name = 'Line_of_Business') 
-begin
-  create table lkp.Line_of_Business 
- (
-  L_ID int not null,
-  L_Abbreviation varchar (5) not null,
-  L_Name varchar (250) not null,
-  L_EntryDate date not null
- )
- print 'Table lkp.Line_of_Business created'+char(13)
-end
-else print 'Table lkp.Line_of_Business already exists' +char(13)
+USE [MariaBoyar_Insurance_Test]
+GO
 
 
 /***************   Policy_Form ****************************/
+
+ALTER TABLE lkp.Policy_Form DROP CONSTRAINT IF EXISTS FK_Policy_Form_Line_of_Business
+
+ALTER TABLE lkp.Policy_Form WITH CHECK ADD CONSTRAINT FK_Policy_Form_Line_of_Business FOREIGN KEY(L_ID) REFERENCES lkp.Line_of_Business (L_ID)
+ALTER TABLE lkp.Policy_Form CHECK CONSTRAINT FK_Policy_Form_Line_of_Business
+
 
 if not exists (select * from sys.tables t join sys.schemas s on (t.schema_id = s.schema_id) where s.name = 'lkp' and t.name = 'Policy_Form') 
 begin

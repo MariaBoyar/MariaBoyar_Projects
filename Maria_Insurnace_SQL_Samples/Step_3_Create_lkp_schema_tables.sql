@@ -25,13 +25,14 @@ else print 'Table lkp.Line_of_Business already exists' +char(13)
 
 
 /***************   Policy_Form ****************************/
-
+-- drop table if exists lkp.Policy_Form
 if not exists (select * from sys.tables t join sys.schemas s on (t.schema_id = s.schema_id) where s.name = 'lkp' and t.name = 'Policy_Form') 
 begin
   create table lkp.Policy_Form 
  (
   Form_ID int not null identity (1,1) CONSTRAINT [PK_Policy_Form] PRIMARY KEY,
   L_ID int not null,
+  S_Code varchar (5) not null,
   Form_Abbreviation varchar (5) not null,
   Form_Name varchar (250) not null,
   Form_EntryDate date not null
@@ -81,7 +82,7 @@ if not exists (select * from sys.tables t join sys.schemas s on (t.schema_id = s
 begin
   create table lkp.States (
   S_ID int not null identity (1,1), 
-  s_Code varchar(5) not null,
+  S_Code varchar(5) not null,
   S_State varchar (250) not null,
   CONSTRAINT [PK_States] PRIMARY KEY CLUSTERED 
   ([S_ID] ASC) WITH (IGNORE_DUP_KEY = OFF) ON [PRIMARY]
