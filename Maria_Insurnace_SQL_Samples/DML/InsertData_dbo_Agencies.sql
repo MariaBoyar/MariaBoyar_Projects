@@ -1,17 +1,6 @@
-/*******************************************************************/
-/*  Step 7. Insert data to dbo.schema tables   */
-/*******************************************************************/
-
-use [MariaBoyar_Insurance_Test]
-truncate table dbo.Agencies
-truncate table dbo.Agents
-truncate table dbo.Insureds
-truncate table dbo.Policy_CoreData
-
-GO
-/********************************************************************/
 
 /***************  Agencies ****************************/
+-- truncate table dbo.Agencies
  print 'Insert Data dbo.Agencies'
 
  USE [MariaBoyar_Insurance_Test]
@@ -73,24 +62,4 @@ update dbo.Agencies set Agc_ParentCompany_ID = (select top 1 AGC_ID From dbo.Age
 update dbo.Agencies set Agc_ParentCompany_ID = (select top 1 AGC_ID From dbo.Agencies where Agc_Name = 'Triangle Insurance Alliance') where Agc_Name = 'Blackmon Insurance Agency of North Carolina, Inc'
 update dbo.Agencies set Agc_ParentCompany_ID = (select top 1 AGC_ID From dbo.Agencies where Agc_Name = 'Horace Mann Insurance Company') where Agc_Name = 'Liberty Mutual Insurance'
 update dbo.Agencies set Agc_ParentCompany_ID = (select top 1 AGC_ID From dbo.Agencies where Agc_Name = 'Liberty Mutual Insurance') where Agc_Name = 'NC Mutual Life Insurance Company'
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- print char(13)
 
