@@ -77,7 +77,7 @@ select (select top 1 AGC_ID From dbo.Agencies where Agc_Name = 'NC Mutual Life I
 
 GO
 
-update dbo.Agents set Agc_EntryDate = '2018-01-01'
+update dbo.Agents set Agt_EntryDate = '2018-01-01'
 
 /*  Assigning Parent Manager ID*/
 
@@ -93,46 +93,6 @@ join dbo.Agents as Managers2 on
 				Managers2.Agc_ID = Managers.Agc_ID 
 			and Managers2.Agt_Code = Managers.Manager_Agt_Code
 
-update A set 
-  Agt_Manager_ID = (select Agt_ID
-                   from dbo.Agents as Managers2 
-				   where  
-				      Managers2.Agc_ID = Managers.Agc_ID 
-			          and Managers2.Agt_Code = Managers.Manager_Agt_Code)
-from dbo.Agents A
-join (
-    select min (Agt_Code) as Manager_Agt_Code, Agc_ID
-	from dbo.Agents
-	Group by Agc_ID
-   ) Managers on Managers.Agc_ID = A.Agc_ID
 
-update Agents set
-  Agt_Manager_ID =  ( 
-select Managers2.Agt_Id
-from (
-    select min (Agt_Code) as Manager_Agt_Code, Agc_ID
-	from dbo.Agents
-	Group by Agc_ID
-   ) Managers
-join dbo.Agents as Managers2 on 
-				Managers2.Agc_ID = Managers.Agc_ID 
-			and Managers2.Agt_Code = Managers.Manager_Agt_Code
-where Managers.Agc_ID= Agents.Agc_ID
-			)
+select * from dbo.Agents
 
-
-alter table Agents alter column Agt_Manager_ID int 
-select * from Agents
-
---set Agt_Manager_ID = Agents_Managers.Agt_ID
----------------------------------------------------------------------------------------------------------
-select A.*, Managers.*, Managers2.Agt_Code, Managers2.[Agt_ID] from  dbo.Agents A
-join (
-    select min (Agt_Code) as Manager_Agt_Code, Agc_ID
-	from dbo.Agents
-	Group by Agc_ID
-   ) Managers on Managers.Agc_ID = A.Agc_ID
-join dbo.Agents as Managers2 on 
-				Managers2.Agc_ID = Managers.Agc_ID 
-			and Managers2.Agt_Code = Managers.Manager_Agt_Code
-order by A.Agc_ID, A.Agt_ID

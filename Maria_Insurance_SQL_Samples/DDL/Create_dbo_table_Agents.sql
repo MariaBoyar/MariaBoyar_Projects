@@ -1,4 +1,6 @@
 /****** Object:  Table dbo.Agents    ******/
+
+-- alter table Agents alter column Agt_Manager_ID int 
 /* drop table dbo.Agents */
 
 IF OBJECT_ID(N'dbo.Agents', N'U') IS NULL 
