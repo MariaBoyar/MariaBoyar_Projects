@@ -1,47 +1,89 @@
 
-/***************  Agencies ****************************/
--- truncate table dbo.Agencies
- print 'Insert Data dbo.Agencies'
+/***************  Agents ****************************/
+-- truncate table dbo.Agents
+ print 'Insert Data dbo.Agents'
 
  USE [MariaBoyar_Insurance_Test]
 GO
 
---INSERT INTO [dbo].[Agencies]
---  ( [Agc_Name]
---  , [Agc_Code]
---  , [Agc_Address_FullText]
---  , [Agc_Phys_Address1]
---  , [Agc_Phys_City]
---  , [Agc_Phys_State]
---  , [Agc_Phys_Zip]
---  , [Agc_Phone]
+INSERT INTO [dbo].[Agents]
+    (       [Agc_ID]
+           ,[Agt_Code]
+           ,[Agt_Manager_ID]
+           ,[Agt_FirstName]
+           ,[Agt_LastName]
+           ,[Agt_DoB]
+           ,[Agt_Phone]
 
---)        
---SELECT 'Amica Mutual', '3457896', '8537 Six Forks Rd Suite 100, Raleigh, NC 27615', '8537 Six Forks Rd Suite 100', 'Raleigh', 'NC', '27615', '(800) 892-6422' union all 
---SELECT 'ACF Insurance Services', '4968405', '1545 US-70, Garner, NC 27529', '1545 US-70', 'Garner', 'NC', '27529', '(919) 661-1100' union all
---SELECT 'Carolina Capital Insurance Group', '456756562', '1009 Bullard Ct Ste 201, Raleigh, NC 27615', '1009 Bullard Ct Ste 201', 'Raleigh', 'NC', '27615', '(919) 747-9002' union all 
---SELECT 'Blackmon Insurance Agency of North Carolina, Inc', '85678', '4280 Louisburg Rd, Raleigh, NC 27604', '4280 Louisburg Rd', 'Raleigh', 'NC', '27604', '(919) 875-8500' union all 
---SELECT 'Insurance Doctor of Raleigh NC', '5678578', '4237 Louisburg Rd #101, Raleigh, NC 27604', '4237 Louisburg Rd #101', 'Raleigh', 'NC', '27604', '(919) 578-9619' union all 
---SELECT 'Snotherly Insurance Agency', '64754', '2308 Wake Forest Rd, Raleigh, NC 27608', '2308 Wake Forest Rd', 'Raleigh', 'NC', '27608', '(919) 832-5832' union all 
---SELECT 'Brown Phillips Insurance', '96789678', '4940 Windy Hill Dr ste b, Raleigh, NC 27609', '4940 Windy Hill Dr ste b', 'Raleigh', 'NC', '27609', '(919) 874-0405' union all 
---SELECT 'Builders Mutual Insurance Company', '234563', '5580 Centerview Dr, Raleigh, NC 27606', '5580 Centerview Dr', 'Raleigh', 'NC', '27606', '(800) 809-4858' union all 
---SELECT 'Stonewood Insurance Co', '7564676', '6131 Falls of Neuse Rd, Raleigh, NC 27609', '6131 Falls of Neuse Rd', 'Raleigh', 'NC', '27609', '(919) 882-3500' union all 
---SELECT 'Direct Auto Insurance', '867858', '3231 Avent Ferry Rd #101, Raleigh, NC 27606', '3231 Avent Ferry Rd #101', 'Raleigh', 'NC', '27606', '(919) 326-6440' union all 
---SELECT 'Discovery Insurance Company', '5787343', '604 N Queen St, Kinston, NC 28501', '604 N Queen St', 'Kinston', 'NC', '28501', '(800) 876-1492' union all 
---SELECT 'Lipstone Insurance Group', '23546', '208 New Edition Ct, Cary, NC 27511', '208 New Edition Ct', 'Cary', 'NC', '27511', '(919) 463-5300' union all 
---SELECT 'Direct Auto Insurance', '54677642', '3627 New Bern Ave, Raleigh, NC 27610', '3627 New Bern Ave', 'Raleigh', 'NC', '27610', '(919) 231-3544' union all 
---SELECT 'Triangle Insurance Alliance', '87655', '2530 Meridian Pkwy #300, Durham, NC 27713', '2530 Meridian Pkwy #300', 'Durham', 'NC', '27713', '(919) 322-3640' union all 
---SELECT 'Amistad Insurance Services', '98765', '421-114 Chapanoke Rd, Raleigh, NC 27603', '421-114 Chapanoke Rd', 'Raleigh', 'NC', '27603', '(919) 926-7166' union all 
---SELECT 'Horace Mann Insurance Company', '34524', '853 Durham Rd, Wake Forest, NC 27587', '853 Durham Rd', 'Wake Forest', 'NC', '27587', '(919) 562-0175' union all 
---SELECT 'Blackmon Insurance Agency of North Carolina, Inc', '5756690', '3416 Poole Rd #110, Raleigh, NC 27610', '3416 Poole Rd #110', 'Raleigh', 'NC', '27610', '(919) 231-8131' union all 
---SELECT 'Liberty Mutual Insurance', '456767', '1511 Sunday Dr Suite 200, Raleigh, NC 27607', '1511 Sunday Dr Suite 200', 'Raleigh', 'NC', '27607', '(919) 985-8799' union all 
---SELECT 'NC Mutual Life Insurance Company', '878756', '411 W Chapel Hill St, Durham, NC 27701', '411 W Chapel Hill St', 'Durham', 'NC', '27701', '(800) 626-1899'  
+	)
+
+select (select top 1 AGC_ID From dbo.Agencies where Agc_Name = 'Amica Mutual'), 'x21', null, 'Maren', 'Friska', '1970-05-03', '(800) 892-6423', union all 
+select (select top 1 AGC_ID From dbo.Agencies where Agc_Name = 'Amica Mutual'), 'x22', null, 'William', 'Lane', '1970-05-12', '(800) 892-6424', union all 
+
+select (select top 1 AGC_ID From dbo.Agencies where Agc_Name = 'ACF Insurance Services'), 'x31', null, 'Joseph', 'Mordini', '1971-04-06', '(919) 661-1101', union all 
+select (select top 1 AGC_ID From dbo.Agencies where Agc_Name = 'ACF Insurance Services'), 'x32', null, 'Maren', 'Friska', '1976-06-18', '(919) 661-1102', union all 
+
+select (select top 1 AGC_ID From dbo.Agencies where Agc_Name = 'Carolina Capital Insurance Group'), 'x41', null, 'Angie', 'Patrivk', '1965-02-14', '(919) 747-9003', union all 
+select (select top 1 AGC_ID From dbo.Agencies where Agc_Name = 'Carolina Capital Insurance Group'), 'x42', null, 'Kevin', 'Ruffin', '1983-08-15', '(919) 747-9004', union all      
+
+select (select top 1 AGC_ID From dbo.Agencies where Agc_Name = 'Blackmon Insurance Agency of North Carolina, Inc'), 'x51', null, 'Ismail', 'Sardar', '1984-08-12', '(919) 875-8501', union all 
+select (select top 1 AGC_ID From dbo.Agencies where Agc_Name = 'Blackmon Insurance Agency of North Carolina, Inc'), 'x52', null, 'Mohammed', 'Usman', '1970-03-03', '(919) 875-8502', union all      
+
+select (select top 1 AGC_ID From dbo.Agencies where Agc_Name = 'Insurance Doctor of Raleigh NC'), 'x61', null, 'Mike', 'Lee', '1990-05-30', '(919) 578-9620', union all 
+select (select top 1 AGC_ID From dbo.Agencies where Agc_Name = 'Insurance Doctor of Raleigh NC'), 'x62', null, 'Carol', 'King', '1962-12-17', '(919) 578-9621', union all      
+
+select (select top 1 AGC_ID From dbo.Agencies where Agc_Name = 'Snotherly Insurance Agency'), 'x71', null, 'Megan', 'Goetics', '1979-09-22', '(919) 832-5833', union all 
+select (select top 1 AGC_ID From dbo.Agencies where Agc_Name = 'Snotherly Insurance Agency'), 'x72', null, 'Jane', 'Erikson', '1981-08-02', '(919) 832-5834', union all      
+
+select (select top 1 AGC_ID From dbo.Agencies where Agc_Name = 'Brown Phillips Insurance'), 'x81', null, 'Julia', 'Markova', '1960-03-08', '(919) 874-0406', union all 
+select (select top 1 AGC_ID From dbo.Agencies where Agc_Name = 'Brown Phillips Insurance'), 'x82', null, 'Kostantin', 'Vershinin', '1988-11-28', '(919) 874-0407', union all
+
+select (select top 1 AGC_ID From dbo.Agencies where Agc_Name = 'Builders Mutual Insurance Company'), 'x91', null, 'Julie', 'Melson', '1964-06-30', '(800) 809-4859', union all 
+select (select top 1 AGC_ID From dbo.Agencies where Agc_Name = 'Builders Mutual Insurance Company'), 'x92', null, 'Simon', 'Nianci', '1970-10-10', '(800) 809-4860', union all
+
+select (select top 1 AGC_ID From dbo.Agencies where Agc_Name = 'Stonewood Insurance Co'), 'x101', null, 'Georgia', 'Lockhart', '1970-02-22', '(919) 882-3501', union all 
+select (select top 1 AGC_ID From dbo.Agencies where Agc_Name = 'Stonewood Insurance Co'), 'x102', null, '', '', '1970-05-03', '(919) 882-3502', union all
+
+select (select top 1 AGC_ID From dbo.Agencies where Agc_Name = 'Direct Auto Insurance'), 'x11', null, '', '', '1970-05-03', '(919) 326-6441', union all 
+select (select top 1 AGC_ID From dbo.Agencies where Agc_Name = 'Direct Auto Insurance'), 'x12', null, '', '', '1970-05-03', '(919) 326-6442', union all
+
+select (select top 1 AGC_ID From dbo.Agencies where Agc_Name = 'Discovery Insurance Company'), 'x121', null, '', '', '1970-05-03', '(800) 876-1493', union all 
+select (select top 1 AGC_ID From dbo.Agencies where Agc_Name = 'Discovery Insurance Company'), 'x122', null, '', '', '1970-05-03', '(800) 876-1494', union all
+
+select (select top 1 AGC_ID From dbo.Agencies where Agc_Name = 'Lipstone Insurance Group'), 'x131', null, '', '', '1970-05-03', '(919) 463-5301', union all 
+select (select top 1 AGC_ID From dbo.Agencies where Agc_Name = 'Lipstone Insurance Group'), 'x132', null, '', '', '1970-05-03', '(919) 463-5302', union all
+
+select (select top 1 AGC_ID From dbo.Agencies where Agc_Name = 'Direct Auto Insurance'), 'x141', null, '', '', '1970-05-03', '(919) 231-3545', union all 
+select (select top 1 AGC_ID From dbo.Agencies where Agc_Name = 'Direct Auto Insurance'), 'x142', null, '', '', '1970-05-03', '(919) 231-3546', union all
+
+select (select top 1 AGC_ID From dbo.Agencies where Agc_Name = 'Triangle Insurance Alliance'), 'x151', null, '', '', '1970-05-03', '(919) 322-3641', union all 
+select (select top 1 AGC_ID From dbo.Agencies where Agc_Name = 'Triangle Insurance Alliance'), 'x152', null, '', '', '1970-05-03', '(919) 322-3642', union all
+
+select (select top 1 AGC_ID From dbo.Agencies where Agc_Name = 'Amistad Insurance Services'), 'x161', null, '', '', '1970-05-03', '(919) 926-7167', union all 
+select (select top 1 AGC_ID From dbo.Agencies where Agc_Name = 'Amistad Insurance Services'), 'x162', null, '', '', '1970-05-03', '(919) 926-7168', union all
+
+select (select top 1 AGC_ID From dbo.Agencies where Agc_Name = 'Horace Mann Insurance Company'), 'x171', null, '', '', '1970-05-03', '(919) 562-0176', union all 
+select (select top 1 AGC_ID From dbo.Agencies where Agc_Name = 'Horace Mann Insurance Company'), 'x172', null, '', '', '1970-05-03', '(919) 562-0177', union all
+
+select (select top 1 AGC_ID From dbo.Agencies where Agc_Name = 'Blackmon Insurance Agency of North Carolina, Inc'), 'x181', null, '', '', '1970-05-03', '(919) 231-8132', union all 
+select (select top 1 AGC_ID From dbo.Agencies where Agc_Name = 'Blackmon Insurance Agency of North Carolina, Inc'), 'x182', null, '', '', '1970-05-03', '(919) 231-8133', union all
+
+select (select top 1 AGC_ID From dbo.Agencies where Agc_Name = 'Liberty Mutual Insurance'), 'x191', null, '', '', '1970-05-03', '(919) 985-8800', union all 
+select (select top 1 AGC_ID From dbo.Agencies where Agc_Name = 'Liberty Mutual Insurance'), 'x192', null, '', '', '1970-05-03', '(919) 985-8801', union all
+
+select (select top 1 AGC_ID From dbo.Agencies where Agc_Name = 'NC Mutual Life Insurance Company'), 'x201', null, 'Maren', 'Friska', '1970-05-03', '(800) 626-1900', union all 
+select (select top 1 AGC_ID From dbo.Agencies where Agc_Name = 'NC Mutual Life Insurance Company'), 'x202', null, 'Maren', 'Friska', '1970-05-03', '(800) 626-1901'
 
 
---GO
+GO
 
---update dbo.Agencies set Agc_EntryDate = '2018-01-01'
---/*  Assigning Parent Compnay ID*/
+update dbo.Agents set Agc_EntryDate = '2018-01-01'
+
+/*  Assigning Parent Manager ID*/
+
+update dbo.Agents
+set Agt_Manager_ID = 
+   (select )
 
 --update dbo.Agencies set Agc_ParentCompany_ID = Null where Agc_Name = 'Amica Mutual'
 --update dbo.Agencies set Agc_ParentCompany_ID = (select top 1 AGC_ID From dbo.Agencies where Agc_Name = 'Amica Mutual') where Agc_Name = 'ACF Insurance Services'
