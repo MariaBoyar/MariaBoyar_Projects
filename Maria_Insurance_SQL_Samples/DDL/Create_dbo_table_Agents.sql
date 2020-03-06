@@ -7,7 +7,7 @@ CREATE TABLE dbo.Agents(
 	Agt_ID int not null identity (1,1) CONSTRAINT [PK_Agents] PRIMARY KEY,
 	Agc_ID  int not null,
 	Agt_Code varchar(50) not null,
-	Agt_Manager_ID bit null,
+	Agt_Manager_ID int null,
 	Agt_FirstName varchar(250) not null,
 	Agt_LastName varchar(250) not null,
 	Agt_DoB date not null,
