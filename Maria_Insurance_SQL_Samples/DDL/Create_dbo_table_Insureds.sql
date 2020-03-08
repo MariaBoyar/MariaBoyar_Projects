@@ -22,7 +22,7 @@ CREATE TABLE dbo.Insureds(
 	Ins_Mail_Address2 date null,
 	Ins_Mail_City datetime null,
 	Ins_Mail_County int null,
-	Ins_Mail_State int null,
+	Ins_Mail_State varchar(5) null,
 	Ins_Mail_Zip int null,
 
 	Ins_Phone varchar(20) null,

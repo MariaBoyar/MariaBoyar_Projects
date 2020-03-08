@@ -12,7 +12,7 @@ CREATE TABLE dbo.Policy_CoreData(
 	Pol_TermExpirationDate date not null,
 	Pol_TransEffectiveDate date not null,
 	Pol_TransEntryDate datetime not null,
-	Pol_PrimaryHolder_ID int not null,
+	Primary_Insured_ID int not null,
 	L_ID int not null,
 	Form_ID int not null,
 	Pol_TransOrder int not null,
@@ -21,8 +21,7 @@ CREATE TABLE dbo.Policy_CoreData(
 	Pol_RateDate datetime not null,
 	Agency_ID int not null,
 	Agent_ID int not null,
-	State_Code varchar(5) not null,
-	Primary_insured_ID int not null
+	State_Code varchar(5) not null
 ) 
 
 
