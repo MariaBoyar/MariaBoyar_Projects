@@ -13,3 +13,9 @@ begin
  print 'Table lkp.States created'+char(13)
 end
 else print 'Table lkp.States already exists' +char(13)
+
+GO
+
+ALTER TABLE lkp.States ADD CONSTRAINT CK_S_Code UNIQUE (S_Code)
+
+GO
