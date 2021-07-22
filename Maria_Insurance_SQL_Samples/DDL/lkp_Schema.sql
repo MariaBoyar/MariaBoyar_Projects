@@ -12,7 +12,7 @@ order by s.name
 */
 
 /***********************************************************************/
-use [MariaBoyar_Insurance_Test]
+use [MariaBoyar_Insurance]
 go 
 
 -- IF NOT EXISTS ( SELECT  schema_name FROM    information_schema.schemata  WHERE   schema_name = 'lkp' ) 

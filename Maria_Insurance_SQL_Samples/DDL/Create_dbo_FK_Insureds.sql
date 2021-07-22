@@ -1,4 +1,4 @@
-USE [MariaBoyar_Insurance_Test]
+USE [MariaBoyar_Insurance]
 GO
 
 /*************  dbo.Insureds ****************************************************/

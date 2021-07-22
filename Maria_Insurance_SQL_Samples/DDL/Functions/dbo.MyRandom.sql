@@ -1,4 +1,4 @@
-USE [MariaBoyar_Insurance_Test]
+USE [MariaBoyar_Insurance]
 GO
 
 /****** Object:  UserDefinedFunction [dbo].[MyRandom]    Script Date: 3/5/2020 1:03:15 PM ******/

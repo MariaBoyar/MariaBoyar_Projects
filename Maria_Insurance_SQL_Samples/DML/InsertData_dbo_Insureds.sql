@@ -3,7 +3,7 @@
 -- truncate table dbo.Insureds
  print 'Insert Data dbo.Insureds'
 
- USE [MariaBoyar_Insurance_Test]
+ USE [MariaBoyar_Insurance]
 GO
 
 INSERT INTO [dbo].[Insureds]
